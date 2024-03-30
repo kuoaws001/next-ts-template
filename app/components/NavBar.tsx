@@ -11,7 +11,11 @@ export const NavBar = () => {
   return (
     <div className={styles.header}>
       {status === 'loading' && <div></div>}
-      {status === 'authenticated' && <div>{data.user!.name}</div>}
+      {status === 'authenticated' &&
+        <div>
+          <span className={styles.login_name}>{data.user!.name}</span>
+          <Link href='/api/auth/signout'>Sign Out</Link>
+        </div>}
       {status === 'unauthenticated' && <Link href='/api/auth/signin'>Login</Link>}
     </div>
   )
